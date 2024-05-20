@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.PaymentInformationActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlTopAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:paddingHorizontal="@dimen/_8sdp"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/icon_back"
+            android:src="@drawable/ic_back"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:includeFontPadding="false"
+            android:text="@string/payment_information"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14ssp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rlTopAppBar"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:background="@color/colorScheduleNoteBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/_4sdp"
+        android:paddingStart="@dimen/_6sdp"
+        android:paddingEnd="@dimen/_1sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_info"
+            app:tint="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:includeFontPadding="false"
+            android:text="@string/please_check_all_information_before_do_payment"
+            android:textSize="@dimen/_11ssp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/svInformation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rlPaymentInformation"
+        android:layout_below="@id/llNote"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginVertical="@dimen/_6sdp"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvPatientInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/quicksand_bold"
+                android:includeFontPadding="false"
+                android:text="@string/patient_information"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_16ssp" />
+
+            <ImageView
+                android:id="@+id/ivPatientNameLabel"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_below="@id/tvPatientInformation"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_account"
+                app:tint="@color/colorSelectHealthFacilityHint" />
+
+            <TextView
+                android:id="@+id/tvPatientName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignTop="@id/ivPatientNameLabel"
+                android:layout_alignBottom="@id/ivPatientNameLabel"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_toEndOf="@id/ivPatientNameLabel"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_13ssp" />
+
+            <ImageView
+                android:id="@+id/ivEmailLabel"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_below="@id/ivPatientNameLabel"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_email"
+                app:tint="@color/colorSelectHealthFacilityHint" />
+
+            <TextView
+                android:id="@+id/tvPatientEmail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignTop="@id/ivEmailLabel"
+                android:layout_alignBottom="@id/ivEmailLabel"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_toEndOf="@id/ivPatientNameLabel"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_13ssp" />
+
+            <ImageView
+                android:id="@+id/ivPatientPhoneNumberLabel"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_below="@id/ivEmailLabel"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_phone"
+                app:tint="@color/colorSelectHealthFacilityHint" />
+
+            <TextView
+                android:id="@+id/tvPatientPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignTop="@id/ivPatientPhoneNumberLabel"
+                android:layout_alignBottom="@id/ivPatientPhoneNumberLabel"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_toEndOf="@id/ivPatientNameLabel"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_13ssp" />
+
+            <TextView
+                android:id="@+id/tvAppointmentInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivPatientPhoneNumberLabel"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/appointment_information"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_16ssp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvAppointmentInformation"
+                android:baselineAligned="false"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="20">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="13"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center_vertical"
+                        android:text="@string/health_facility"
+                        android:textColor="@color/colorRegisterFieldLabel"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <TextView
+                        android:id="@+id/tvHealthFacility"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center_vertical|end"
+                        android:textColor="@color/colorRegisterFieldLabel"
+                        android:textSize="@dimen/_13ssp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="20">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="13"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center_vertical"
+                        android:text="@string/department"
+                        android:textColor="@color/colorRegisterFieldLabel"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <TextView
+                        android:id="@+id/tvDepartment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center_vertical|end"
+                        android:textColor="@color/colorRegisterFieldLabel"
+                        android:textSize="@dimen/_13ssp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="20">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="13"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center_vertical"
+                        android:text="@string/doctor"
+                        android:textColor="@color/colorRegisterFieldLabel"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <TextView
+                        android:id="@+id/tvDoctor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center_vertical|end"
+                        android:textColor="@color/colorRegisterFieldLabel"
+                        android:textSize="@dimen/_13ssp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="20">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="13"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center_vertical"
+                        android:text="@string/appointment_date"
+                        android:textColor="@color/colorRegisterFieldLabel"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center_vertical|end"
+                        android:textColor="@color/colorRegisterFieldLabel"
+                        android:textSize="@dimen/_13ssp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="20">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="13"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center_vertical"
+                        android:text="@string/appointment_time"
+                        android:textColor="@color/colorConfirmationText"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <TextView
+                        android:id="@+id/tvTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center_vertical|end"
+                        android:textColor="@color/colorConfirmationText"
+                        android:textSize="@dimen/_13ssp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rlPaymentInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginVertical="@dimen/_6sdp">
+
+        <TextView
+            android:id="@+id/tvPaymentMethod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_bold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_16ssp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/mdDivider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/tvPaymentMethod"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:dividerColor="@color/colorSelectHealthFacilityItemBackground" />
+
+        <TextView
+            android:id="@+id/tvPriceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mdDivider"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="@string/service_price"
+            android:textColor="@color/colorConfirmationText"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mdDivider"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:fontFamily="@font/quicksand_medium"
+            android:textColor="@color/colorConfirmationText"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:id="@+id/tvUtilityPriceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvPriceLabel"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="@string/utility_price"
+            android:textColor="@color/colorConfirmationText"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:id="@+id/tvUtilityPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvPriceLabel"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:fontFamily="@font/quicksand_medium"
+            android:textColor="@color/colorConfirmationText"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:id="@+id/tvTotalPriceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvUtilityPrice"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="@string/total_price"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:id="@+id/tvTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvUtilityPrice"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:fontFamily="@font/quicksand_bold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_14ssp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/mdDividerEnd"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/tvTotalPriceLabel"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:dividerColor="@color/colorSelectHealthFacilityItemBackground" />
+
+        <TextView
+            android:id="@+id/tvConfirmPayment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/mdDividerEnd"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="Xác nhận đặt lịch"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_13ssp" />
+
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_below="@id/mdDividerEnd"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:indeterminateTint="@color/colorPrimary"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

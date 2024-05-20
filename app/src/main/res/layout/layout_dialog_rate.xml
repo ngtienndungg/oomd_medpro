@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginHorizontal="@dimen/_16sdp"
+    android:background="@drawable/background_center_menu">
+
+    <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:padding="@dimen/_4sdp"
+        android:src="@drawable/ic_close"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivClose"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/quicksand_bold"
+        android:textSize="@dimen/_15ssp" />
+
+    <LinearLayout
+        android:id="@+id/llYourStar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/ivStar1"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+        <ImageView
+            android:id="@+id/ivStar2"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+        <ImageView
+            android:id="@+id/ivStar3"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+        <ImageView
+            android:id="@+id/ivStar4"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+        <ImageView
+            android:id="@+id/ivStar5"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilComment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_below="@id/llYourStar"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_2sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_2sdp"
+        app:boxCornerRadiusTopEnd="@dimen/_2sdp"
+        app:boxCornerRadiusTopStart="@dimen/_2sdp"
+        app:boxStrokeColor="@color/colorStrokeBox"
+        app:boxStrokeWidthFocused="1dp"
+        app:hintEnabled="false">
+
+        <EditText
+            android:id="@+id/etComment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/quicksand_medium"
+            android:hint="@string/type_your_rate"
+            android:importantForAutofill="no"
+            android:includeFontPadding="false"
+            android:inputType="text|textMultiLine"
+            android:textColor="@color/colorRegisterFieldLabel"
+            android:textColorHint="@color/colorRegisterFieldHint"
+            android:textSize="@dimen/_12sdp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tilComment"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/tvNegativeAction"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="1"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:id="@+id/tvPositiveAction"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="1"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:text="@string/rate"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_14ssp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

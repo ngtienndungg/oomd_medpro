@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".activities.HomeActivity">
+
+    <View
+        android:id="@+id/supportView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_3sdp"
+        android:background="@drawable/background_shadow_bottom"
+        app:layout_constraintBottom_toTopOf="@id/bnvDashboard" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingBottom="@dimen/_2sdp"
+        app:layout_constraintBottom_toTopOf="@id/bnvDashboard"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnvDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:background="@color/colorWhite"
+        app:itemActiveIndicatorStyle="@color/colorWhite"
+        app:itemIconTint="@drawable/selector_bottom_navigation"
+        app:itemPaddingBottom="@dimen/_7sdp"
+        app:itemPaddingTop="@dimen/_6sdp"
+        app:itemRippleColor="@color/colorRipple"
+        app:itemTextColor="@drawable/selector_bottom_navigation"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_navigation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

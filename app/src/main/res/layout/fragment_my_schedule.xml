@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MyScheduleFragment">
+
+    <RelativeLayout
+        android:id="@+id/rlTopAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:paddingHorizontal="@dimen/_8sdp"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/icon_back"
+            android:src="@drawable/ic_back"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:includeFontPadding="false"
+            android:text="@string/personal_appointment_management"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14ssp" />
+
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/svOption"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_below="@id/rlTopAppBar"
+        android:background="@color/white"
+        android:scrollbars="none"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_6sdp">
+
+            <TextView
+                android:id="@+id/tvWaitingConfirmation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_my_schedule_option_unselected"
+                android:fontFamily="@font/quicksand_medium"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="@string/wait_for_confirmation"
+                android:textColor="@color/colorMyScheduleOptionText"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvConfirmed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:background="@drawable/background_my_schedule_option_unselected"
+                android:fontFamily="@font/quicksand_medium"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="@string/schedule_confirmed"
+                android:textColor="@color/colorMyScheduleOptionText"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvChecked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:background="@drawable/background_my_schedule_option_unselected"
+                android:fontFamily="@font/quicksand_medium"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="@string/checked_up"
+                android:textColor="@color/colorMyScheduleOptionText"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvCancelled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:background="@drawable/background_my_schedule_option_unselected"
+                android:fontFamily="@font/quicksand_medium"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="@string/cancelled"
+                android:textColor="@color/colorMyScheduleOptionText"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvEntire"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:background="@drawable/background_my_schedule_option_unselected"
+                android:fontFamily="@font/quicksand_medium"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="@string/entire"
+                android:textColor="@color/colorMyScheduleOptionText"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/svOptionDate"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_below="@id/svOption"
+        android:scrollbars="none"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_8sdp">
+
+            <TextView
+                android:id="@+id/tvDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_my_schedule_option_unselected"
+                android:fontFamily="@font/quicksand_medium"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="@string/default_text"
+                android:textColor="@color/colorMyScheduleOptionText"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:background="@drawable/background_my_schedule_option_unselected"
+                android:fontFamily="@font/quicksand_medium"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="@string/today"
+                android:textColor="@color/colorMyScheduleOptionText"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvThisWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:background="@drawable/background_my_schedule_option_unselected"
+                android:fontFamily="@font/quicksand_medium"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="@string/this_week"
+                android:textColor="@color/colorMyScheduleOptionText"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvSelectDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:background="@drawable/background_my_schedule_option_unselected"
+                android:fontFamily="@font/quicksand_medium"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="@string/select_date"
+                android:textColor="@color/colorMyScheduleOptionText"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/svOptionDate"
+        android:background="@color/colorCalendarDayBackground" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/svOptionDate">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAppointments"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorCalendarDayBackground"
+            android:paddingHorizontal="@dimen/_6sdp"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/colorPrimary"
+        android:visibility="gone" />
+
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="registerAsteriskSize">@dimen/_11ssp</dimen>
+    <dimen name="registerAsteriskMarginStart">@dimen/_3sdp</dimen>
+    <dimen name="registerLabelFieldSize">@dimen/_12ssp</dimen>
+    <dimen name="registerFieldLabelMarginStart">@dimen/_2sdp</dimen>
+    <dimen name="registerFieldSpace">@dimen/_14sdp</dimen>
+    <dimen name="registerLabelTextFieldSpace">@dimen/_8sdp</dimen>
+    <dimen name="registerTextFieldHeight">@dimen/_32sdp</dimen>
+    <dimen name="homeItemWidth">@dimen/_94sdp</dimen>
+    <dimen name="homeItemHeight">@dimen/_87sdp</dimen>
+</resources>

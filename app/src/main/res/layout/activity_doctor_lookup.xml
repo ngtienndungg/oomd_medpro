@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DoctorLookupActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlTopAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/colorPrimary"
+        android:paddingHorizontal="@dimen/_8sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/icon_back"
+            android:src="@drawable/ic_back"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:includeFontPadding="false"
+            android:text="@string/search_doctor"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14ssp" />
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:background="@color/colorFindBackground"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/topBackground"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:background="@drawable/background_top_find"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ctlFields"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:background="@drawable/background_center_menu"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_13sdp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/doctor_name"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilName"
+                    style="?attr/textInputFilledStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    app:boxBackgroundColor="@color/colorWhite"
+                    app:boxStrokeColor="@color/colorStrokeBox"
+                    app:boxStrokeWidth="1.2dp"
+                    app:endIconMode="clear_text"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/tvName"
+                    app:startIconDrawable="@drawable/ic_name_underlined"
+                    app:startIconMinSize="@dimen/_25sdp"
+                    app:startIconScaleType="fitStart"
+                    app:startIconTint="@null">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:hint="@string/doctor_name"
+                        android:includeFontPadding="false"
+                        android:inputType="text"
+                        android:paddingTop="@dimen/_9sdp"
+                        android:textColor="@color/colorFindText"
+                        android:textColorHint="@color/colorFindText"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvHealthFacility"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/hospital_and_clinic"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilName" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilHealthFacility"
+                    style="?attr/textInputFilledStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    app:boxBackgroundColor="@color/colorWhite"
+                    app:boxStrokeColor="@color/colorStrokeBox"
+                    app:boxStrokeWidth="1.2dp"
+                    app:endIconMode="clear_text"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/tvHealthFacility"
+                    app:startIconDrawable="@drawable/ic_hospital_underlined"
+                    app:startIconMinSize="@dimen/_25sdp"
+                    app:startIconScaleType="fitStart"
+                    app:startIconTint="@null">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etHealthFacility"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:hint="@string/from_all_hospital_and_clinic"
+                        android:includeFontPadding="false"
+                        android:inputType="text"
+                        android:paddingTop="@dimen/_9sdp"
+                        android:textColor="@color/colorFindText"
+                        android:textColorHint="@color/colorFindText"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvDepartment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/department"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilHealthFacility" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDepartment"
+                    style="?attr/textInputFilledStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    app:boxBackgroundColor="@color/colorWhite"
+                    app:boxStrokeColor="@color/colorStrokeBox"
+                    app:boxStrokeWidth="1.2dp"
+                    app:endIconMode="clear_text"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/tvDepartment"
+                    app:startIconDrawable="@drawable/ic_department_underlined"
+                    app:startIconMinSize="@dimen/_25sdp"
+                    app:startIconScaleType="fitStart"
+                    app:startIconTint="@null">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDepartment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:hint="@string/from_all_department"
+                        android:includeFontPadding="false"
+                        android:inputType="text"
+                        android:paddingTop="@dimen/_9sdp"
+                        android:textColor="@color/colorFindText"
+                        android:textColorHint="@color/colorFindText"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/tvSearch"
+                    style="?attr/textAppearanceBodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/background_search_button"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:includeFontPadding="false"
+                    android:text="@string/search"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/tilDepartment" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

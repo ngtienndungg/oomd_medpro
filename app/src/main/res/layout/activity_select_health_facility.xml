@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.HealthFacilitySelectionActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rlTopAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/colorPrimary"
+            android:paddingHorizontal="@dimen/_8sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/icon_back"
+                android:src="@drawable/ic_back"
+                app:tint="@color/colorWhite" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:includeFontPadding="false"
+                android:text="@string/select_health_facility"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_14ssp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlSearchName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rlTopAppBar"
+            android:background="@color/colorPrimary"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_8sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/registerTextFieldHeight"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/background_select_health_facility_search"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/_12sdp">
+
+                <ImageView
+                    android:id="@+id/ivSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_15sdp"
+                    android:gravity="center_vertical"
+                    android:src="@drawable/ic_search"
+                    app:tint="@color/colorSelectHealthFacilityHint"
+                    tools:ignore="ContentDescription" />
+
+                <EditText
+                    android:id="@+id/etSearchName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/registerTextFieldHeight"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:background="@null"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center_vertical"
+                    android:hint="@string/type_name_of_health_facility"
+                    android:importantForAutofill="no"
+                    android:includeFontPadding="false"
+                    android:inputType="text"
+                    android:textColor="@color/colorSelectHealthFacilityHint"
+                    android:textColorHint="@color/colorSelectHealthFacilityHint"
+                    android:textSize="@dimen/registerLabelFieldSize" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlSearchCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rlSearchName"
+            android:background="@color/colorPrimary"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_8sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/registerTextFieldHeight"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/background_select_health_facility_search"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/_12sdp">
+
+                <ImageView
+                    android:id="@+id/ivCity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_15sdp"
+                    android:gravity="center_vertical"
+                    android:src="@drawable/ic_location"
+                    app:tint="@color/colorSelectHealthFacilityHint"
+                    tools:ignore="ContentDescription" />
+
+                <EditText
+                    android:id="@+id/etCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/registerTextFieldHeight"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:background="@null"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center_vertical"
+                    android:hint="@string/all_province_city"
+                    android:importantForAutofill="no"
+                    android:includeFontPadding="false"
+                    android:inputType="text"
+                    android:textColor="@color/colorSelectHealthFacilityHint"
+                    android:textColorHint="@color/colorSelectHealthFacilityHint"
+                    android:textSize="@dimen/registerLabelFieldSize" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHealthFacility"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rlSearchCity"
+            android:background="@color/colorSelectHealthFacilityItemBackground"
+            android:paddingTop="@dimen/_4sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_below="@id/rlSearchCity"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:indeterminateTint="@color/colorNote"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rlSearchName"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:id="@+id/llError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:ignore="UseCompoundDrawables,UselessParent">
+
+                <ImageView
+                    android:id="@+id/ivError"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_error" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:text="@string/something_wrong_happened"
+                    android:textColor="@color/colorTextViewResult"
+                    android:textSize="@dimen/_11sdp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/tvNotFound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:importantForAccessibility="no"
+                android:src="@mipmap/ic_not_found"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

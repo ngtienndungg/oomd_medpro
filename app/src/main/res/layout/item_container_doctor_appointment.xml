@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_8sdp"
+    android:background="@drawable/background_appointment"
+    android:paddingVertical="@dimen/_8sdp"
+    android:paddingStart="@dimen/_10sdp"
+    android:paddingEnd="@dimen/_2sdp"
+    tools:ignore="RtlSymmetry">
+
+    <TextView
+        android:id="@+id/tvCodeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:fontFamily="@font/quicksand_bold"
+        android:includeFontPadding="false"
+        android:text="@string/appointment_code"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_13ssp" />
+
+    <TextView
+        android:id="@+id/tvCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_toEndOf="@id/tvCodeLabel"
+        android:fontFamily="@font/quicksand_bold"
+        android:includeFontPadding="false"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_13ssp" />
+
+    <TextView
+        android:id="@+id/tvHealthFacility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvCode"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:fontFamily="@font/quicksand_semi_bold"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorRegisterFieldLabel"
+        android:textSize="@dimen/_13ssp" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/mdDivider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_below="@id/tvHealthFacility"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:dividerColor="@color/colorSelectHealthFacilityItemBackground" />
+
+    <LinearLayout
+        android:id="@+id/llInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mdDivider"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:baselineAligned="false"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="20">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="13"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical"
+                android:text="@string/full_name"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_weight="7"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical|end"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="20">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="13"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical"
+                android:text="@string/phone_number"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_weight="7"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical|end"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="20">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="13"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical"
+                android:text="@string/appointment_date"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_weight="7"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical|end"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="20">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="13"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical"
+                android:text="@string/appointment_time"
+                android:textColor="@color/colorConfirmationText"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_weight="7"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical|end"
+                android:textColor="@color/colorConfirmationText"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="20">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="13"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical"
+                android:text="@string/status"
+                android:textColor="@color/colorConfirmationText"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_weight="7"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical|end"
+                android:textColor="@color/colorConfirmationText"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llViewDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llInformation"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center_vertical|end"
+        android:orientation="horizontal"
+        android:weightSum="20">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:layout_weight="19"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center_vertical|end"
+            android:includeFontPadding="false"
+            android:text="@string/view_detail"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_12ssp" />
+
+        <ImageView
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_weight="1"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_navigate_next"
+            app:tint="@color/colorPrimary" />
+
+    </LinearLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/mdDividerA"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_below="@id/llViewDetail"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:dividerColor="@color/colorSelectHealthFacilityItemBackground" />
+
+    <RelativeLayout
+        android:id="@+id/rlResponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mdDividerA"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/pbLoadingAccept"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:padding="@dimen/_3sdp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ivAccept"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:background="@drawable/background_response_icon"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_accept"
+            tools:ignore="ContentDescription" />
+
+        <ProgressBar
+            android:id="@+id/pbLoadingDeny"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_toStartOf="@id/ivAccept"
+            android:padding="@dimen/_3sdp"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/ivDeny"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_toStartOf="@id/ivAccept"
+            android:background="@drawable/background_response_icon"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_deny"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

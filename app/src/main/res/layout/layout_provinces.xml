@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llProvinces"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    android:padding="@dimen/_4sdp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_bold"
+        android:gravity="center"
+        android:text="@string/city_list"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_15ssp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProvinces"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:padding="@dimen/_2sdp"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:fontFamily="@font/quicksand_bold"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/something_wrong_please_reset"
+        android:textColor="@color/colorErrorBackground"
+        android:textSize="@dimen/_12ssp"
+        android:visibility="gone" />
+
+</LinearLayout>

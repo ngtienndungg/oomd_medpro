@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlTopAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/colorPrimary"
+        android:paddingHorizontal="@dimen/_8sdp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/icon_back"
+            android:src="@drawable/ic_back"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:includeFontPadding="false"
+            android:text="@string/login"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14ssp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rlTopAppBar"
+        android:layout_marginStart="@dimen/registerFieldLabelMarginStart"
+        android:layout_marginTop="@dimen/registerFieldSpace"
+        android:fontFamily="@font/quicksand_medium"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:text="@string/email"
+        android:textColor="@color/colorRegisterFieldLabel"
+        android:textSize="@dimen/registerLabelFieldSize" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/registerTextFieldHeight"
+        android:layout_below="@id/tvEmail"
+        android:layout_marginTop="@dimen/registerLabelTextFieldSpace"
+        android:paddingHorizontal="@dimen/_8sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_16sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_16sdp"
+        app:boxCornerRadiusTopEnd="@dimen/_16sdp"
+        app:boxCornerRadiusTopStart="@dimen/_16sdp"
+        app:boxStrokeColor="@color/colorStrokeBox"
+        app:boxStrokeWidthFocused="1dp"
+        app:endIconMode="clear_text"
+        app:hintEnabled="false">
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/quicksand_regular"
+            android:hint="@string/type_email"
+            android:importantForAutofill="no"
+            android:includeFontPadding="false"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/_9sdp"
+            android:textColor="@color/colorRegisterFieldLabel"
+            android:textColorHint="@color/colorRegisterFieldHint"
+            android:textSize="@dimen/_11sdp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tilEmail"
+        android:layout_marginStart="@dimen/registerFieldLabelMarginStart"
+        android:layout_marginTop="@dimen/registerFieldSpace"
+        android:fontFamily="@font/quicksand_medium"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:text="@string/password"
+        android:textColor="@color/colorRegisterFieldLabel"
+        android:textSize="@dimen/registerLabelFieldSize" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPassword"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/registerTextFieldHeight"
+        android:layout_below="@id/tvPassword"
+        android:layout_marginTop="@dimen/registerLabelTextFieldSpace"
+        android:paddingHorizontal="@dimen/_8sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_16sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_16sdp"
+        app:boxCornerRadiusTopEnd="@dimen/_16sdp"
+        app:boxCornerRadiusTopStart="@dimen/_16sdp"
+        app:boxStrokeColor="@color/colorStrokeBox"
+        app:boxStrokeWidthFocused="1dp"
+        app:hintEnabled="false"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/quicksand_regular"
+            android:hint="@string/type_password_at_least_6_characters"
+            android:importantForAutofill="no"
+            android:includeFontPadding="false"
+            android:inputType="textPassword"
+            android:padding="@dimen/_9sdp"
+            android:textColor="@color/colorRegisterFieldLabel"
+            android:textColorHint="@color/colorRegisterFieldHint"
+            android:textSize="@dimen/_11sdp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btLogin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_below="@id/tilPassword"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/registerFieldSpace"
+        android:background="@drawable/background_gender_radio_button"
+        android:backgroundTint="@color/colorPrimary"
+        android:fontFamily="@font/quicksand_semi_bold"
+        android:text="@string/login"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_12ssp" />
+
+    <TextView
+        android:id="@+id/tvCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btLogin"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/registerFieldLabelMarginStart"
+        android:layout_marginTop="@dimen/registerFieldSpace"
+        android:fontFamily="@font/quicksand_bold"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:text="@string/create_account"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_13ssp" />
+
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btLogin"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/registerFieldLabelMarginStart"
+        android:layout_marginTop="@dimen/registerFieldSpace"
+        android:fontFamily="@font/quicksand_bold"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:text="@string/forgot_password"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_13ssp" />
+
+</RelativeLayout>

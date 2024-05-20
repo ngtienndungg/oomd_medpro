@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FEFEFE</color>
+    <color name="colorPrimary">#009AE4</color>
+    <color name="colorStrokeBox">#E6E6E6</color>
+    <color name="colorHomeFragmentBorder">#F0F0F0</color>
+    <color name="colorIcon">#676C70</color>
+    <color name="colorRegisterFieldHint">#A0A1A6</color>
+    <color name="colorRegisterFieldLabel">#373737</color>
+    <color name="colorRegisterMandatory">#F2F4FF</color>
+    <color name="colorGenderMale">#03B2F3</color>
+    <color name="colorGenderFemale">#FF42EE</color>
+    <color name="colorAsterisk">#DB4745</color>
+    <color name="colorSelectHealthFacilityStrokeBox">#02A9EB</color>
+    <color name="colorSelectHealthFacilityHint">#ABE9FF</color>
+    <color name="colorSelectHealthFacilityItemBackground">#F1F1F1</color>
+    <color name="colorSelectHealthFacilityItemStroke">#E1E1E1</color>
+    <color name="colorDoctorName">#0AB1FF</color>
+    <color name="colorErrorBackground">#FF9A9A</color>
+    <color name="colorCalendarDayBackground">#F1F1F1</color>
+    <color name="colorCalendarDayText">#747C89</color>
+    <color name="colorScheduleNoteBackground">#F0F9FF</color>
+    <color name="colorAvailableDate">#B8E5FC</color>
+    <color name="colorFullSlotDate">#CCCCCC</color>
+    <color name="colorTodayDate">#3BBDFF</color>
+    <color name="colorConfirmationText">#1B2727</color>
+    <color name="colorMyScheduleOptionText">#82898F</color>
+    <color name="colorAction">#1478A8</color>
+    <color name="colorRipple">#DFEAF2</color>
+    <color name="colorFindBackground">#E6EAED</color>
+    <color name="colorSecondaryText">#7A8286</color>
+    <color name="colorDoctorInformation">#223539</color>
+    <color name="colorFindText">#62666B</color>
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">
+        @color/colorStrokeBox
+    </color>
+    <color name="colorSearchButton">#FF5E1E</color>
+    <color name="colorNote">#95999C</color>
+    <color name="colorTextViewResultBackground">#F6F6F6</color>
+    <color name="colorTextViewResult">#697076</color>
+    <color name="colorDivider">#D9D9D9</color>
+</resources>

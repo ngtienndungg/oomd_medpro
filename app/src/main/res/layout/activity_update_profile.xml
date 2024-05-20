@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.UpdateProfileActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rlTopAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/colorPrimary"
+            android:paddingHorizontal="@dimen/_8sdp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/icon_back"
+                android:src="@drawable/ic_back"
+                app:tint="@color/colorWhite" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:includeFontPadding="false"
+                android:text="@string/update_profile"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_14ssp" />
+
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rlTopAppBar"
+            android:background="@color/colorWhite">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingVertical="@dimen/_10sdp">
+
+                <RelativeLayout
+                    android:id="@+id/rlMandatory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_center_menu"
+                    android:backgroundTint="@color/colorRegisterMandatory"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:paddingVertical="@dimen/_12sdp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/ivInfo"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:contentDescription="@string/icon_information"
+                        android:src="@drawable/ic_info"
+                        app:tint="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/tvNotation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/ivInfo"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:layout_toEndOf="@id/ivInfo"
+                        android:text="@string/asterisk"
+                        android:textColor="@color/colorAsterisk"
+                        android:textSize="@dimen/registerAsteriskSize" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/tvNotation"
+                        android:includeFontPadding="false"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:text="@string/please_fill_this_information_to_update"
+                        android:textSize="@dimen/_9ssp" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvFullName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/registerFieldLabelMarginStart"
+                    android:layout_marginTop="@dimen/registerFieldSpace"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/full_name"
+                    android:textColor="@color/colorRegisterFieldLabel"
+                    android:textSize="@dimen/registerLabelFieldSize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rlMandatory" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/registerAsteriskMarginStart"
+                    android:includeFontPadding="false"
+                    android:text="@string/asterisk"
+                    android:textColor="@color/colorAsterisk"
+                    android:textSize="@dimen/registerAsteriskSize"
+                    app:layout_constraintStart_toEndOf="@id/tvFullName"
+                    app:layout_constraintTop_toTopOf="@id/tvFullName" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/registerTextFieldHeight"
+                    android:layout_marginTop="@dimen/registerLabelTextFieldSpace"
+                    app:boxCornerRadiusBottomEnd="@dimen/_16sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_16sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_16sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_16sdp"
+                    app:boxStrokeColor="@color/colorStrokeBox"
+                    app:boxStrokeWidthFocused="1dp"
+                    app:endIconMode="clear_text"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/tvFullName">
+
+                    <EditText
+                        android:id="@+id/etFullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/quicksand_regular"
+                        android:hint="@string/type_full_name"
+                        android:importantForAutofill="no"
+                        android:includeFontPadding="false"
+                        android:inputType="textPersonName"
+                        android:padding="@dimen/_9sdp"
+                        android:textColor="@color/colorRegisterFieldLabel"
+                        android:textColorHint="@color/colorRegisterFieldHint"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvPhoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/registerFieldLabelMarginStart"
+                    android:layout_marginTop="@dimen/registerFieldSpace"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/phone_number"
+                    android:textColor="@color/colorRegisterFieldLabel"
+                    android:textSize="@dimen/registerLabelFieldSize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilFullName" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/registerAsteriskMarginStart"
+                    android:includeFontPadding="false"
+                    android:text="@string/asterisk"
+                    android:textColor="@color/colorAsterisk"
+                    android:textSize="@dimen/registerAsteriskSize"
+                    app:layout_constraintStart_toEndOf="@id/tvPhoneNumber"
+                    app:layout_constraintTop_toTopOf="@id/tvPhoneNumber" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPhoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/registerTextFieldHeight"
+                    android:layout_marginTop="@dimen/registerLabelTextFieldSpace"
+                    app:boxCornerRadiusBottomEnd="@dimen/_16sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_16sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_16sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_16sdp"
+                    app:boxStrokeColor="@color/colorStrokeBox"
+                    app:boxStrokeWidthFocused="1dp"
+                    app:endIconMode="clear_text"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/tvPhoneNumber">
+
+                    <EditText
+                        android:id="@+id/etPhoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:enabled="false"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/quicksand_regular"
+                        android:hint="@string/type_phone_number"
+                        android:importantForAutofill="no"
+                        android:includeFontPadding="false"
+                        android:inputType="phone"
+                        android:padding="@dimen/_9sdp"
+                        android:textColor="@color/colorRegisterFieldLabel"
+                        android:textColorHint="@color/colorRegisterFieldHint"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/registerFieldLabelMarginStart"
+                    android:layout_marginTop="@dimen/registerFieldSpace"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/email"
+                    android:textColor="@color/colorRegisterFieldLabel"
+                    android:textSize="@dimen/registerLabelFieldSize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilPhoneNumber" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/registerAsteriskMarginStart"
+                    android:includeFontPadding="false"
+                    android:text="@string/asterisk"
+                    android:textColor="@color/colorAsterisk"
+                    android:textSize="@dimen/registerAsteriskSize"
+                    app:layout_constraintStart_toEndOf="@id/tvEmail"
+                    app:layout_constraintTop_toTopOf="@id/tvEmail" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/registerTextFieldHeight"
+                    android:layout_marginTop="@dimen/registerLabelTextFieldSpace"
+                    app:boxCornerRadiusBottomEnd="@dimen/_16sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_16sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_16sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_16sdp"
+                    app:boxStrokeColor="@color/colorStrokeBox"
+                    app:boxStrokeWidthFocused="1dp"
+                    app:endIconMode="clear_text"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/tvEmail">
+
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/quicksand_regular"
+                        android:hint="@string/type_email"
+                        android:importantForAutofill="no"
+                        android:includeFontPadding="false"
+                        android:inputType="textEmailAddress"
+                        android:padding="@dimen/_9sdp"
+                        android:textColor="@color/colorRegisterFieldLabel"
+                        android:textColorHint="@color/colorRegisterFieldHint"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvDateOfBirth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/registerFieldLabelMarginStart"
+                    android:layout_marginTop="@dimen/registerFieldSpace"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/date_of_birth"
+                    android:textColor="@color/colorRegisterFieldLabel"
+                    android:textSize="@dimen/registerLabelFieldSize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilEmail" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/registerAsteriskMarginStart"
+                    android:includeFontPadding="false"
+                    android:text="@string/asterisk"
+                    android:textColor="@color/colorAsterisk"
+                    android:textSize="@dimen/registerAsteriskSize"
+                    app:layout_constraintStart_toEndOf="@id/tvDateOfBirth"
+                    app:layout_constraintTop_toTopOf="@id/tvDateOfBirth" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDateOfBirth"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/registerTextFieldHeight"
+                    android:layout_marginTop="@dimen/registerLabelTextFieldSpace"
+                    app:boxCornerRadiusBottomEnd="@dimen/_16sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_16sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_16sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_16sdp"
+                    app:boxStrokeColor="@color/colorStrokeBox"
+                    app:boxStrokeWidthFocused="1dp"
+                    app:endIconMode="clear_text"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/tvDateOfBirth">
+
+                    <com.msa.dateedittext.DateEditText
+                        android:id="@+id/etDateOfBirth"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/quicksand_regular"
+                        android:hint="@string/type_day_month_year"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
+                        android:includeFontPadding="false"
+                        android:inputType="date"
+                        android:padding="@dimen/_9sdp"
+                        android:textColor="@color/colorRegisterFieldLabel"
+                        android:textColorHint="@color/colorRegisterFieldHint"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/registerFieldLabelMarginStart"
+                    android:layout_marginTop="@dimen/registerFieldSpace"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/gender"
+                    android:textColor="@color/colorRegisterFieldLabel"
+                    android:textSize="@dimen/registerLabelFieldSize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilDateOfBirth" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/registerAsteriskMarginStart"
+                    android:includeFontPadding="false"
+                    android:text="@string/asterisk"
+                    android:textColor="@color/colorAsterisk"
+                    android:textSize="@dimen/registerAsteriskSize"
+                    app:layout_constraintStart_toEndOf="@id/tvGender"
+                    app:layout_constraintTop_toTopOf="@id/tvGender" />
+
+                <RadioGroup
+                    android:id="@+id/rgGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/registerTextFieldHeight"
+                    android:layout_marginTop="@dimen/registerLabelTextFieldSpace"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    app:layout_constraintTop_toBottomOf="@id/tvGender">
+
+                    <RadioButton
+                        android:id="@+id/rbMale"
+                        style="@style/Widget.Material3.CompoundButton.RadioButton.GenderRadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/_4sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/selector_male"
+                        android:drawableEnd="@drawable/ic_male"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:includeFontPadding="false"
+                        android:paddingStart="@dimen/_4sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:text="@string/male"
+                        android:textSize="@dimen/registerLabelFieldSize" />
+
+                    <RadioButton
+                        android:id="@+id/rbFemale"
+                        style="@style/Widget.Material3.CompoundButton.RadioButton.GenderRadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/selector_female"
+                        android:drawableEnd="@drawable/ic_female"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:includeFontPadding="false"
+                        android:paddingStart="@dimen/_4sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:text="@string/female"
+                        android:textSize="@dimen/registerLabelFieldSize" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tvGenderError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:fontFamily="@font/quicksand_regular"
+                    android:text="@string/please_select_gender"
+                    android:textColor="@color/design_default_color_error"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tvGender"
+                    app:layout_constraintStart_toEndOf="@id/tvGender"
+                    app:layout_constraintTop_toTopOf="@id/tvGender" />
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/registerFieldLabelMarginStart"
+                    android:layout_marginTop="@dimen/registerFieldSpace"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/address"
+                    android:textColor="@color/colorRegisterFieldLabel"
+                    android:textSize="@dimen/registerLabelFieldSize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgGender" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/registerTextFieldHeight"
+                    android:layout_marginTop="@dimen/registerLabelTextFieldSpace"
+                    app:boxCornerRadiusBottomEnd="@dimen/_16sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_16sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_16sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_16sdp"
+                    app:boxStrokeColor="@color/colorStrokeBox"
+                    app:boxStrokeWidthFocused="1dp"
+                    app:endIconMode="clear_text"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/tvAddress">
+
+                    <EditText
+                        android:id="@+id/etAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/quicksand_regular"
+                        android:hint="@string/type_address"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
+                        android:includeFontPadding="false"
+                        android:inputType="text"
+                        android:padding="@dimen/_9sdp"
+                        android:textColor="@color/colorRegisterFieldLabel"
+                        android:textColorHint="@color/colorRegisterFieldHint"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <Button
+                    android:id="@+id/btRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/registerFieldSpace"
+                    android:background="@drawable/background_gender_radio_button"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/quicksand_semi_bold"
+                    android:text="@string/update_profile"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintTop_toBottomOf="@id/tilAddress" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

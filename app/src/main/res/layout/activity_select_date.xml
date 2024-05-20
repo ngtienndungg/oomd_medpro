@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DateSelectionActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlTopAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/colorPrimary"
+        android:paddingHorizontal="@dimen/_8sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/icon_back"
+            android:src="@drawable/ic_back"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:includeFontPadding="false"
+            android:text="@string/choose_appointment_date"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14ssp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rlTopAppBar"
+        android:layout_marginVertical="@dimen/_6sdp"
+        android:background="@color/colorScheduleNoteBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/_4sdp"
+        android:paddingStart="@dimen/_6sdp"
+        android:paddingEnd="@dimen/_1sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_info"
+            app:tint="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:includeFontPadding="false"
+            android:text="@string/currently_allow_schedule_before_x_day"
+            android:textSize="@dimen/_11ssp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llNote"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:paddingVertical="@dimen/_8sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_bold"
+            android:includeFontPadding="false"
+            android:text="@string/calendar_information"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_13ssp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:background="@color/colorStrokeBox" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlColorIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llInformation"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/_6sdp">
+
+        <LinearLayout
+            android:id="@+id/llToday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:background="@drawable/background_color_indicator"
+                android:backgroundTint="@color/colorTodayDate" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:includeFontPadding="false"
+                android:text="@string/today"
+                android:textSize="@dimen/_12ssp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_38sdp"
+            android:layout_toEndOf="@id/llToday"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:background="@drawable/background_color_indicator"
+                android:backgroundTint="@color/colorAvailableDate" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:includeFontPadding="false"
+                android:text="@string/available"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="RelativeOverlap">
+
+            <View
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:background="@drawable/background_color_indicator"
+                android:backgroundTint="@color/colorFullSlotDate" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:includeFontPadding="false"
+                android:text="@string/full_slot"
+                android:textSize="@dimen/_12ssp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rlColorIndicator"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_6sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_calendar_month_navigator"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_6sdp">
+
+            <ImageView
+                android:id="@+id/ivPreviousMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentStart="true"
+                android:contentDescription="@string/icon_back"
+                android:src="@drawable/ic_navigate_previous"
+                app:tint="@color/colorWhite" />
+
+            <TextView
+                android:id="@+id/tvMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/quicksand_bold"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_13ssp"
+                tools:ignore="RelativeOverlap" />
+
+
+            <ImageView
+                android:id="@+id/ivNextMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentEnd="true"
+                android:contentDescription="@string/icon_back"
+                android:src="@drawable/ic_navigate_next"
+                app:tint="@color/colorWhite" />
+
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/titlesContainer"
+            layout="@layout/titles_container_calendar_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp" />
+
+        <com.kizitonwose.calendar.view.CalendarView
+            android:id="@+id/cvCalendar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:cv_dayViewResource="@layout/layout_calendar_day" />
+
+    </LinearLayout>
+
+</RelativeLayout>

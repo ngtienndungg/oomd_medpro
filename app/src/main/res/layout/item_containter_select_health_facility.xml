@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_3sdp"
+    android:layout_marginVertical="@dimen/_2sdp"
+    android:background="@drawable/background_health_facility_item"
+    android:paddingHorizontal="@dimen/_4sdp"
+    android:paddingVertical="@dimen/_6sdp">
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:importantForAccessibility="no"
+        android:padding="@dimen/_6sdp" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_toEndOf="@id/ivImage"
+        android:fontFamily="@font/quicksand_regular"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_12ssp" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:layout_toEndOf="@id/ivImage"
+        android:fontFamily="@font/quicksand_regular"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="@dimen/_9ssp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvAddress"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_toEndOf="@id/ivImage">
+
+        <ImageView
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+        <ImageView
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+        <ImageView
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+        <ImageView
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+        <ImageView
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+    </LinearLayout>
+
+</RelativeLayout>

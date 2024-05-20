@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DoctorInformationActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlTopAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:paddingHorizontal="@dimen/_8sdp"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/icon_back"
+            android:src="@drawable/ic_back"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:includeFontPadding="false"
+            android:text="@string/doctor_information"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14ssp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rlTopAppBar"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivImage"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:importantForAccessibility="no"
+                android:scaleType="fitCenter" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@id/ivImage"
+                android:layout_marginTop="@dimen/_6sdp"
+                app:dividerColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tvNameLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:text="@string/full_name"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvNameLabel"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/quicksand_regular"
+                android:text="Nguyễn Hoàng Quang Trung"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/mdA"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@id/tvName"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:dividerColor="@color/colorStrokeBox" />
+
+            <TextView
+                android:id="@+id/tvPositionLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mdA"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:text="@string/academic_level"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/tvPosition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvPositionLabel"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/quicksand_regular"
+                android:text="BS CKII"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/mdB"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@id/tvPosition"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:dividerColor="@color/colorStrokeBox" />
+
+            <TextView
+                android:id="@+id/tvGenderLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mdB"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:text="@string/gender"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/tvGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvGenderLabel"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/quicksand_regular"
+                android:text="Nam"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/mdC"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@id/tvGender"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:dividerColor="@color/colorStrokeBox" />
+
+            <TextView
+                android:id="@+id/tvDepartmentLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mdC"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:text="@string/department"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/tvDepartment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDepartmentLabel"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/quicksand_regular"
+                android:text="Khoa Nhi"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/mdY"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@id/tvDepartment"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:dividerColor="@color/colorStrokeBox" />
+
+            <TextView
+                android:id="@+id/tvClinicLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mdY"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:text="@string/hospital_and_clinic"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/tvClinic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvClinicLabel"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/quicksand_regular"
+                android:text="Bệnh viện Đại học Y dược Tp.HCM"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/mdX"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@id/tvClinic"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:dividerColor="@color/colorStrokeBox" />
+
+            <TextView
+                android:id="@+id/tvDescriptionLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mdX"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:text="@string/description"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDescriptionLabel"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/quicksand_regular"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/mdD"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@id/tvDescription"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:dividerColor="@color/colorStrokeBox" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/mdE"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@id/mdD"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:dividerColor="@color/colorStrokeBox" />
+
+            <TextView
+                android:id="@+id/tvClinicInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mdE"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/view_hospital_information"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/tvSchedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvClinicInformation"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/view_doctor_schedule"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/mdF"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@id/tvSchedule"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:dividerColor="@color/colorStrokeBox" />
+
+            <TextView
+                android:id="@+id/tvYourRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mdF"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:text="@string/your_rating"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <LinearLayout
+                android:id="@+id/llYourStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/tvYourRating"
+                android:layout_alignBottom="@id/tvYourRating"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_toEndOf="@id/tvYourRating"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/ivStar1"
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:contentDescription="@string/icon_star"
+                    android:src="@mipmap/ic_gold_star" />
+
+                <ImageView
+                    android:id="@+id/ivStar2"
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:contentDescription="@string/icon_star"
+                    android:src="@mipmap/ic_gold_star" />
+
+                <ImageView
+                    android:id="@+id/ivStar3"
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:contentDescription="@string/icon_star"
+                    android:src="@mipmap/ic_gold_star" />
+
+                <ImageView
+                    android:id="@+id/ivStar4"
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:contentDescription="@string/icon_star"
+                    android:src="@mipmap/ic_gold_star" />
+
+                <ImageView
+                    android:id="@+id/ivStar5"
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:contentDescription="@string/icon_star"
+                    android:src="@mipmap/ic_gold_star" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvChange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/tvYourRating"
+                android:layout_alignTop="@id/tvYourRating"
+                android:layout_alignBottom="@id/tvYourRating"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:layout_toEndOf="@id/llYourStar"
+                android:drawablePadding="@dimen/_2sdp"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:text="@string/rate"
+                android:textColor="@color/colorSearchButton"
+                android:textSize="@dimen/_13ssp"
+                app:drawableEndCompat="@drawable/ic_edit"
+                app:drawableTint="@color/colorFindText" />
+
+            <TextView
+                android:id="@+id/tvYourComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvYourRating"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/quicksand_medium"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvYourComment"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:text="@string/rating_of_users"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/tvNoRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/tvRating"
+                android:layout_toEndOf="@id/tvRating"
+                android:fontFamily="@font/quicksand_regular"
+                android:text="@string/no_rating"
+                android:textColor="@color/colorRegisterFieldLabel"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRatings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvRating"
+                android:overScrollMode="never"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

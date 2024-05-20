@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/_6sdp"
+    android:paddingVertical="@dimen/_4sdp">
+
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="@dimen/_28sdp"
+        android:layout_height="@dimen/_28sdp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_account" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:layout_toEndOf="@id/ivProfile"
+        android:fontFamily="@font/quicksand_bold"
+        android:includeFontPadding="false"
+        android:text="Nguyễn Tiến Dũng"
+        android:textColor="@color/colorIcon"
+        android:textSize="@dimen/_12ssp" />
+
+    <LinearLayout
+        android:id="@+id/llStar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_toEndOf="@id/ivProfile">
+
+        <ImageView
+            android:id="@+id/ivStar1"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+        <ImageView
+            android:id="@+id/ivStar2"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+        <ImageView
+            android:id="@+id/ivStar3"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+        <ImageView
+            android:id="@+id/ivStar4"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+        <ImageView
+            android:id="@+id/ivStar5"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:contentDescription="@string/icon_star"
+            android:src="@mipmap/ic_gold_star" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivProfile"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Bệnh viện tốt, chăm sóc bệnh nhân rất tốt"
+        android:textSize="@dimen/_11ssp" />
+
+</RelativeLayout>
