@@ -18,8 +18,8 @@ import com.example.clinic_appointment.models.AppointmentTime.AppointmentTime;
 import com.example.clinic_appointment.models.Department.Department;
 import com.example.clinic_appointment.models.Doctor.Doctor;
 import com.example.clinic_appointment.models.HealthFacility.HealthFacility;
-import com.example.clinic_appointment.models.Schedule.DetailSchedule;
-import com.example.clinic_appointment.models.Schedule.ScheduleResponse;
+import com.example.clinic_appointment.models.Schedule.ScheduleExclude;
+import com.example.clinic_appointment.models.Schedule.ScheduleExcludeResponse;
 import com.example.clinic_appointment.networking.clients.RetrofitClient;
 import com.example.clinic_appointment.utilities.Constants;
 import com.example.clinic_appointment.utilities.DayViewContainer;
@@ -46,7 +46,7 @@ import retrofit2.Response;
 
 public class DateSelectionActivity extends AppCompatActivity {
     private ActivitySelectDateBinding binding;
-    private List<DetailSchedule> availableSchedules;
+    private List<ScheduleExclude> availableSchedules;
     private Doctor doctor;
 
     @Override
@@ -65,12 +65,14 @@ public class DateSelectionActivity extends AppCompatActivity {
         }
         long currentTimeMillis = System.currentTimeMillis();
         long endTimeMillis = currentTimeMillis + (30L * 86400000);
-        Call<ScheduleResponse> call = RetrofitClient.getAuthenticatedAppointmentService(this)
+        binding.pbLoading.setVisibility(View.VISIBLE);
+        Call<ScheduleExcludeResponse> call = RetrofitClient.getAuthenticatedAppointmentService(this)
                 .getSchedules(currentTimeMillis - 86400000, endTimeMillis, null, null, null, Objects.requireNonNull(doctor).getDoctorInformation().getId(), "-ratings");
         availableSchedules = new ArrayList<>();
-        call.enqueue(new Callback<ScheduleResponse>() {
+        call.enqueue(new Callback<ScheduleExcludeResponse>() {
             @Override
-            public void onResponse(@NonNull Call<ScheduleResponse> call, @NonNull Response<ScheduleResponse> response) {
+            public void onResponse(@NonNull Call<ScheduleExcludeResponse> call, @NonNull Response<ScheduleExcludeResponse> response) {
+                binding.pbLoading.setVisibility(View.GONE);
                 if (response.body() != null && response.code() == 200) {
                     availableSchedules = response.body().getSchedules();
                     setupCalendar();
@@ -78,8 +80,9 @@ public class DateSelectionActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NonNull Call<ScheduleResponse> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<ScheduleExcludeResponse> call, @NonNull Throwable t) {
                 Log.d("FailCheck", Objects.requireNonNull(t.getMessage()));
+                binding.pbLoading.setVisibility(View.GONE);
                 Snackbar.make(binding.getRoot(), getString(R.string.something_wrong_happened), BaseTransientBottomBar.LENGTH_SHORT).show();
             }
         });
@@ -108,7 +111,7 @@ public class DateSelectionActivity extends AppCompatActivity {
                     if (calendarDay.getDate().equals(LocalDate.now())) {
                         dayViewContainer.textView.setBackgroundResource(R.color.colorTodayDate);
                     }
-                    for (DetailSchedule schedule : availableSchedules) {
+                    for (ScheduleExclude schedule : availableSchedules) {
                         if (calendarDay.getDate().equals(getLocalDate(schedule.getDate()))) {
                             boolean isFull = true;
                             for (AppointmentTime appointmentTime : schedule.getAppointmentTimes()) {

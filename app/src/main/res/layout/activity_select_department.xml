@@ -101,7 +101,7 @@
         android:layout_below="@id/rlSearchName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_24sdp"
-        android:indeterminateTint="@color/colorNote"
+        android:indeterminateTint="@color/colorPrimary"
         android:visibility="gone" />
 
     <RelativeLayout

@@ -40,4 +40,23 @@
     <color name="colorTextViewResultBackground">#F6F6F6</color>
     <color name="colorTextViewResult">#697076</color>
     <color name="colorDivider">#D9D9D9</color>
+    <color name="primaryText">#212121</color>
+    <color name="secondaryText">#757575</color>
+    <color name="colorInputBackground">#FAFAFA</color>
+    <color name="colorIconBackground">#20FFFFFF</color>
+    <color name="colorError">#B00020</color>
+    <color name="colorSentMessageBackground">#703EFF</color>
+    <color name="colorSentMessage">#E8DFFF</color>
+    <color name="colorReceivedMessage">#0F0F0F</color>
+    <color name="colorOnline">#498990</color>
+    <color name="colorSentIcon">#595BD4</color>
+    <color name="colorOffline">#FFC107</color>
+    <color name="colorBackgroundInformation">#F7F7F7</color>
+    <color name="colorSearchUser">#7D85C2</color>
+    <color name="colorAccept">#00DAB1</color>
+    <color name="greenLight">#11F311</color>
+    <color name="greenDark">#0EC20E</color>
+    <color name="redLight">#D53232</color>
+    <color name="redDark">#952323</color>
+    <color name="greyLight">#ADA9A9</color>
 </resources>

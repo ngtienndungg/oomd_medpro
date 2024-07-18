@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.NotificationFragment">
+
+    <RelativeLayout
+        android:id="@+id/rlTopAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:paddingHorizontal="@dimen/_8sdp"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/icon_back"
+            android:src="@drawable/ic_back"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:includeFontPadding="false"
+            android:text="Thông báo"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14ssp" />
+
+    </RelativeLayout>
 
     <ImageView
         android:layout_width="wrap_content"

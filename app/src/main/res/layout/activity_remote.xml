@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.RemoteActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlTopAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/colorPrimary"
+        android:paddingHorizontal="@dimen/_8sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/icon_back"
+            android:src="@drawable/ic_back"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:includeFontPadding="false"
+            android:text="@string/remote_healthcare"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14ssp" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_below="@id/rlTopAppBar">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Đặt lịch hẹn" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Tin nhắn &amp; cuộc gọi" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabLayout"
+        android:layout_marginTop="@dimen/_10sdp" />
+
+</RelativeLayout>

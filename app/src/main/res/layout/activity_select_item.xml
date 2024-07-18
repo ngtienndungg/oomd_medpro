@@ -117,7 +117,7 @@
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_24sdp"
-        android:indeterminateTint="@color/colorNote"
+        android:indeterminateTint="@color/colorPrimary"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

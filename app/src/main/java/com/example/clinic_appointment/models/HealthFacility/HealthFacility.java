@@ -17,7 +17,7 @@ public class HealthFacility implements Serializable {
     private String name;
     @SerializedName("description")
     private String description;
-    @SerializedName("image")
+    @SerializedName("logo")
     private String image;
     @SerializedName("address")
     private Address address;

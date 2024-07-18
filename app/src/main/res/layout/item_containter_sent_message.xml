@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_2sdp">
+
+    <ImageView
+        android:id="@+id/item_container_sent_message_ivImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight="@dimen/_180sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="@dimen/_180sdp"
+        app:layout_constraintWidth_percent="0.75"
+        tools:ignore="ContentDescription" />
+
+    <ProgressBar
+        android:id="@+id/item_container_sent_message_imageLoading"
+        android:layout_width="@dimen/_160sdp"
+        android:layout_height="@dimen/_160sdp"
+        android:background="@color/colorBlack"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_container_sent_message_tvMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_sent_message"
+        android:gravity="end"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:paddingVertical="@dimen/_8sdp"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="wrap"
+        app:layout_constraintWidth_percent="0.75" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

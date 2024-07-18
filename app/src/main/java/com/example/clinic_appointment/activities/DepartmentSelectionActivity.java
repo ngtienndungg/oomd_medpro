@@ -54,13 +54,15 @@ public class DepartmentSelectionActivity extends AppCompatActivity implements De
     }
 
     private void initiate() {
+        binding.pbLoading.setVisibility(View.VISIBLE);
         if (getIntent().getStringExtra(Constants.KEY_SOURCE_ACTIVITY) == null) {
             selectedHealthFacility = (HealthFacility) getIntent().getSerializableExtra(Constants.KEY_HEALTH_FACILITY);
             Call<HealthFacilityResponse> call = RetrofitClient.getPublicAppointmentService().getHealthFacilityById(selectedHealthFacility.getId());
             call.enqueue(new Callback<HealthFacilityResponse>() {
                 @Override
                 public void onResponse(@NonNull Call<HealthFacilityResponse> call, @NonNull Response<HealthFacilityResponse> response) {
-                    if (response.body() != null && response.body().isSuccess() && response.body().getHealthFacility().getDepartments().size() > 0) {
+                    binding.pbLoading.setVisibility(View.GONE);
+                    if (response.body() != null && response.body().isSuccess() && !response.body().getHealthFacility().getDepartments().isEmpty()) {
                         originalDepartments = response.body().getHealthFacility().getDepartments();
                         dynamicDepartments = new ArrayList<>(originalDepartments);
                         adapter = new SelectDepartmentAdapter(DepartmentSelectionActivity.this, dynamicDepartments);
@@ -74,6 +76,7 @@ public class DepartmentSelectionActivity extends AppCompatActivity implements De
 
                 @Override
                 public void onFailure(@NonNull Call<HealthFacilityResponse> call, @NonNull Throwable t) {
+                    binding.pbLoading.setVisibility(View.GONE);
                     displayError();
                 }
             });
@@ -82,7 +85,7 @@ public class DepartmentSelectionActivity extends AppCompatActivity implements De
             call.enqueue(new Callback<DepartmentResponse>() {
                 @Override
                 public void onResponse(@NonNull Call<DepartmentResponse> call, @NonNull Response<DepartmentResponse> response) {
-                    if (response.body() != null && response.body().isSuccess() && response.body().getDepartments().size() > 0) {
+                    if (response.body() != null && response.body().isSuccess() && !response.body().getDepartments().isEmpty()) {
                         originalDepartments = response.body().getDepartments();
                         dynamicDepartments = new ArrayList<>(originalDepartments);
                         adapter = new SelectDepartmentAdapter(DepartmentSelectionActivity.this, dynamicDepartments);

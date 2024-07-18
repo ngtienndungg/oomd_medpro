@@ -18,7 +18,7 @@ public class Appointment implements Serializable {
     private DetailSchedule schedule;
     @SerializedName("time")
     private String appointmentTime;
-    @SerializedName("images")
+    @SerializedName("descriptionImg")
     private List<String> images;
     @SerializedName("description")
     private String description;

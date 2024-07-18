@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.clinic_appointment.databinding.ItemContainerAppoinmentBinding;
 import com.example.clinic_appointment.listeners.AppointmentListener;
 import com.example.clinic_appointment.models.Appointment.Appointment;
+import com.example.clinic_appointment.utilities.Constants;
 import com.example.clinic_appointment.utilities.CustomConverter;
 
 import java.util.List;
@@ -56,8 +57,21 @@ public class AppointmentManagementAdapter extends RecyclerView.Adapter<Appointme
             binding.tvDepartment.setText(appointment.getSchedule().getDoctor().getDepartmentInformation().getName());
             binding.tvCode.setText(appointment.getId().toUpperCase());
             binding.tvDoctor.setText(appointment.getSchedule().getDoctor().getDoctorInformation().getFullName());
+            binding.tvPatientName.setText(appointment.getPatient().getFullName());
             binding.tvDate.setText(CustomConverter.getFormattedDate(appointment.getSchedule().getDate()));
             binding.tvTime.setText(CustomConverter.getStringAppointmentTime(appointment.getAppointmentTime()));
+            if (appointment.getStatus().equals(Constants.KEY_STATUS_PENDING)) {
+                appointment.setStatus("Đang chờ xác nhận");
+            }
+            if (appointment.getStatus().equals(Constants.KEY_STATUS_CONFIRMED)) {
+                appointment.setStatus("Đã duyệt");
+            }
+            if (appointment.getStatus().equals(Constants.KEY_STATUS_CANCELLED)) {
+                appointment.setStatus("Đã hủy");
+            }
+            if (appointment.getStatus().equals(Constants.KEY_STATUS_EXAMINED)) {
+                appointment.setStatus("Đã khám");
+            }
             binding.tvStatus.setText(appointment.getStatus());
         }
     }

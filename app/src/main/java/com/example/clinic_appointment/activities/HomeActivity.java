@@ -1,6 +1,5 @@
 package com.example.clinic_appointment.activities;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
@@ -11,25 +10,23 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.clinic_appointment.R;
+import com.example.clinic_appointment.adapters.ViewPagerAdapter;
 import com.example.clinic_appointment.databinding.ActivityDashboardBinding;
 import com.example.clinic_appointment.databinding.LayoutDialogNotificationBinding;
-import com.example.clinic_appointment.fragments.AccountFragment;
-import com.example.clinic_appointment.fragments.HomeFragment;
-import com.example.clinic_appointment.fragments.MyScheduleFragment;
-import com.example.clinic_appointment.fragments.NotificationFragment;
-import com.example.clinic_appointment.utilities.Constants;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
     private ActivityDashboardBinding binding;
     private Fragment currentFragment;
     private AlertDialog alertDialog;
+    private BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,57 +34,59 @@ public class HomeActivity extends AppCompatActivity {
         binding = ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         initiate();
-        eventHandling();
     }
 
     private void initiate() {
-        currentFragment = new HomeFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, currentFragment).commit();
-        if (getIntent().hasExtra(Constants.KEY_STATUS_CODE)) {
-            Toast.makeText(this, getString(R.string.book_successfully), Toast.LENGTH_SHORT).show();
-        }
-    }
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), getLifecycle());
+        bottomNav = binding.bnvDashboard;
+        binding.viewPager.setAdapter(viewPagerAdapter);
 
-    @SuppressLint("NonConstantResourceId")
-    private void eventHandling() {
-        binding.bnvDashboard.setOnItemSelectedListener(item -> {
-            Fragment newFragment = null;
+        binding.viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 0:
+                        bottomNav.getMenu().findItem(R.id.menu_item_home).setChecked(true);
+                        break;
+                    case 1:
+                        bottomNav.getMenu().findItem(R.id.menu_item_patient_profile).setChecked(true);
+                        break;
+                    case 2:
+                        bottomNav.getMenu().findItem(R.id.menu_item_my_schedule).setChecked(true);
+                        break;
+                    case 3:
+                        bottomNav.getMenu().findItem(R.id.menu_item_notification).setChecked(true);
+                        break;
+                    default:
+                        bottomNav.getMenu().findItem(R.id.menu_item_account).setChecked(true);
+                        break;
+                }
+                super.onPageSelected(position);
+            }
+        });
+
+        bottomNav.setOnNavigationItemSelectedListener(item ->
+
+        {
             switch (item.getItemId()) {
                 case R.id.menu_item_home:
-                    newFragment = new HomeFragment();
+                    binding.viewPager.setCurrentItem(0);
                     break;
-                case R.id.menu_item_notification:
-                    newFragment = new NotificationFragment();
+                case R.id.menu_item_patient_profile:
+                    binding.viewPager.setCurrentItem(1);
                     break;
                 case R.id.menu_item_my_schedule:
-                    newFragment = new MyScheduleFragment();
+                    binding.viewPager.setCurrentItem(2);
                     break;
-                case R.id.menu_item_account:
-                    newFragment = new AccountFragment();
+                case R.id.menu_item_notification:
+                    binding.viewPager.setCurrentItem(3);
+                    break;
+                default:
+                    binding.viewPager.setCurrentItem(4);
                     break;
             }
-            if (newFragment != null && !(currentFragment.getClass().equals(newFragment.getClass()))) {
-                replaceFragment(newFragment);
-                return true;
-            }
-            return false;
+            return true;
         });
-    }
-
-    private void replaceFragment(Fragment newFragment) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newFragment).commit();
-        currentFragment = newFragment;
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (!(currentFragment instanceof HomeFragment)) {
-            binding.bnvDashboard.setSelectedItemId(R.id.menu_item_home);
-            currentFragment = new HomeFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, currentFragment).commit();
-        } else {
-            super.onBackPressed();
-        }
     }
 
     @Override

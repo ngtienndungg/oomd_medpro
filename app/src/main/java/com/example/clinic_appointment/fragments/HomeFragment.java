@@ -20,9 +20,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.clinic_appointment.R;
 import com.example.clinic_appointment.activities.DoctorLookupActivity;
-import com.example.clinic_appointment.activities.LoginActivity;
-import com.example.clinic_appointment.activities.ScheduleLookupActivity;
 import com.example.clinic_appointment.activities.HealthFacilitySelectionActivity;
+import com.example.clinic_appointment.activities.LoginActivity;
+import com.example.clinic_appointment.activities.RemoteActivity;
+import com.example.clinic_appointment.activities.ScheduleLookupActivity;
 import com.example.clinic_appointment.databinding.FragmentHomeBinding;
 import com.example.clinic_appointment.databinding.LayoutDialogNotificationBinding;
 import com.example.clinic_appointment.utilities.Constants;
@@ -74,7 +75,12 @@ public class HomeFragment extends Fragment {
             intent.setData(Uri.parse("tel:19001234"));
             startActivity(intent);
         });
-    }    private final ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+        binding.llRemoteMedicalConsultant.setOnClickListener(v -> {
+            handleEvent(RemoteActivity.class);
+        });
+    }
+
+    private final ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             result -> {
                 Integer resultCode = result.getResultCode();
                 if (resultCode == Activity.RESULT_OK) {
@@ -119,8 +125,6 @@ public class HomeFragment extends Fragment {
         NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
         return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
     }
-
-
 
 
 }

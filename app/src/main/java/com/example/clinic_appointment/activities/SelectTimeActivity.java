@@ -26,7 +26,7 @@ import com.example.clinic_appointment.models.AppointmentTime.AppointmentTime;
 import com.example.clinic_appointment.models.Department.Department;
 import com.example.clinic_appointment.models.Doctor.Doctor;
 import com.example.clinic_appointment.models.HealthFacility.HealthFacility;
-import com.example.clinic_appointment.models.Schedule.DetailSchedule;
+import com.example.clinic_appointment.models.Schedule.ScheduleExclude;
 import com.example.clinic_appointment.utilities.Constants;
 import com.example.clinic_appointment.utilities.SharedPrefs;
 
@@ -57,7 +57,7 @@ public class SelectTimeActivity extends AppCompatActivity implements Appointment
     private void initiate() {
         List<AppointmentTime> appointmentTimes;
         if (getIntent().getStringExtra(Constants.KEY_SOURCE_ACTIVITY) == null) {
-            DetailSchedule schedule = (DetailSchedule) getIntent().getSerializableExtra(Constants.KEY_DATE);
+            ScheduleExclude schedule = (ScheduleExclude) getIntent().getSerializableExtra(Constants.KEY_DATE);
             appointmentTimes = Objects.requireNonNull(schedule).getAppointmentTimes();
         } else {
             appointmentTimes = (List<AppointmentTime>) getIntent().getSerializableExtra(Constants.KEY_DATE);
@@ -99,11 +99,11 @@ public class SelectTimeActivity extends AppCompatActivity implements Appointment
             displayDialog();
         } else {
             if (getIntent().getStringExtra(Constants.KEY_SOURCE_ACTIVITY) == null) {
-                Intent intent = new Intent(this, ConfirmationActivity.class);
+                Intent intent = new Intent(this, SelectPatientProfileActivity.class);
                 Doctor selectedDoctor = (Doctor) getIntent().getSerializableExtra(Constants.KEY_DOCTOR);
                 Department selectedDepartment = (Department) getIntent().getSerializableExtra(Constants.KEY_DEPARTMENT);
                 HealthFacility selectedHealthFacility = (HealthFacility) getIntent().getSerializableExtra(Constants.KEY_HEALTH_FACILITY);
-                DetailSchedule selectedSchedule = (DetailSchedule) getIntent().getSerializableExtra(Constants.KEY_DATE);
+                ScheduleExclude selectedSchedule = (ScheduleExclude) getIntent().getSerializableExtra(Constants.KEY_DATE);
                 intent.putExtra(Constants.KEY_DATE, selectedSchedule);
                 intent.putExtra(Constants.KEY_DOCTOR, selectedDoctor);
                 intent.putExtra(Constants.KEY_DEPARTMENT, selectedDepartment);

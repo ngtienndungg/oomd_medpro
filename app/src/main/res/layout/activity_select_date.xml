@@ -226,6 +226,15 @@
 
         </RelativeLayout>
 
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/colorPrimary"
+            android:visibility="gone" />
+
         <include
             android:id="@+id/titlesContainer"
             layout="@layout/titles_container_calendar_day"

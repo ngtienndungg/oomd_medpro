@@ -28,8 +28,8 @@ import com.example.clinic_appointment.models.Department.Department;
 import com.example.clinic_appointment.models.Doctor.Doctor;
 import com.example.clinic_appointment.models.Doctor.DoctorResponse;
 import com.example.clinic_appointment.models.HealthFacility.HealthFacility;
-import com.example.clinic_appointment.models.Schedule.DetailSchedule;
-import com.example.clinic_appointment.models.Schedule.ScheduleResponse;
+import com.example.clinic_appointment.models.Schedule.ScheduleExclude;
+import com.example.clinic_appointment.models.Schedule.ScheduleExcludeResponse;
 import com.example.clinic_appointment.networking.clients.RetrofitClient;
 import com.example.clinic_appointment.utilities.Constants;
 
@@ -61,6 +61,7 @@ public class DoctorSelectionActivity extends AppCompatActivity implements Doctor
     }
 
     private void initiate() {
+        binding.pbLoading.setVisibility(View.VISIBLE);
         if (getIntent().getStringExtra(Constants.KEY_SOURCE_ACTIVITY) == null) {
             if (getIntent().getSerializableExtra(Constants.KEY_DEPARTMENT) != null) {
                 selectedDepartment = (Department) getIntent().getSerializableExtra(Constants.KEY_DEPARTMENT);
@@ -70,6 +71,7 @@ public class DoctorSelectionActivity extends AppCompatActivity implements Doctor
             call.enqueue(new Callback<DoctorResponse>() {
                 @Override
                 public void onResponse(@NonNull Call<DoctorResponse> call, @NonNull Response<DoctorResponse> response) {
+                    binding.pbLoading.setVisibility(View.GONE);
                     if (response.body() != null && response.body().isSuccess() && response.body().getDoctors().size() > 0) {
                         originalDoctors = response.body().getDoctors();
                         dynamicDoctors = new ArrayList<>(originalDoctors);
@@ -84,6 +86,7 @@ public class DoctorSelectionActivity extends AppCompatActivity implements Doctor
 
                 @Override
                 public void onFailure(@NonNull Call<DoctorResponse> call, @NonNull Throwable t) {
+                    binding.pbLoading.setVisibility(View.GONE);
                     displayError();
                 }
             });
@@ -93,7 +96,7 @@ public class DoctorSelectionActivity extends AppCompatActivity implements Doctor
             Department department = (Department) getIntent().getSerializableExtra(Constants.KEY_DEPARTMENT);
             long start = getIntent().getLongExtra(Constants.KEY_START_DATE, -1);
             long end = getIntent().getLongExtra(Constants.KEY_END_DATE, -1);
-            Call<ScheduleResponse> call = RetrofitClient.getPublicAppointmentService().getSchedules(
+            Call<ScheduleExcludeResponse> call = RetrofitClient.getPublicAppointmentService().getSchedules(
                     start == -1 ? null : start,
                     end == -1 ? null : end,
                     (appointmentTime != null) ? appointmentTime.getTimeNumber() : null,
@@ -102,12 +105,13 @@ public class DoctorSelectionActivity extends AppCompatActivity implements Doctor
                     null,
                     "-ratings"
             );
-            call.enqueue(new Callback<ScheduleResponse>() {
+            call.enqueue(new Callback<ScheduleExcludeResponse>() {
                 @Override
-                public void onResponse(@NonNull Call<ScheduleResponse> call, @NonNull Response<ScheduleResponse> response) {
+                public void onResponse(@NonNull Call<ScheduleExcludeResponse> call, @NonNull Response<ScheduleExcludeResponse> response) {
                     if (response.body() != null && response.body().isSuccess() && response.body().getSchedules().size() > 0) {
                         Set<String> uniqueIds = new HashSet<>();
-                        List<DetailSchedule> schedules = response.body().getSchedules();
+                        binding.pbLoading.setVisibility(View.GONE);
+                        List<ScheduleExclude> schedules = response.body().getSchedules();
                         schedules.removeIf(detailSchedule -> !uniqueIds.add(detailSchedule.getDoctor().getDoctorInformation().getId()));
                         ScheduleAdapter adapter = new ScheduleAdapter(DoctorSelectionActivity.this, schedules);
                         binding.rvDoctor.setAdapter(adapter);
@@ -119,7 +123,8 @@ public class DoctorSelectionActivity extends AppCompatActivity implements Doctor
                 }
 
                 @Override
-                public void onFailure(@NonNull Call<ScheduleResponse> call, @NonNull Throwable t) {
+                public void onFailure(@NonNull Call<ScheduleExcludeResponse> call, @NonNull Throwable t) {
+                    binding.pbLoading.setVisibility(View.GONE);
                     binding.tvNotFound.setVisibility(View.VISIBLE);
                 }
             });
@@ -132,6 +137,7 @@ public class DoctorSelectionActivity extends AppCompatActivity implements Doctor
                 @Override
                 public void onResponse(@NonNull Call<DoctorResponse> call, @NonNull Response<DoctorResponse> response) {
                     if (response.body() != null && response.body().isSuccess() && response.body().getDoctors().size() > 0) {
+                        binding.pbLoading.setVisibility(View.GONE);
                         originalDoctors = response.body().getDoctors();
                         dynamicDoctors = new ArrayList<>(originalDoctors);
                         SelectDoctorAdapter adapter = new SelectDoctorAdapter(DoctorSelectionActivity.this, dynamicDoctors);
@@ -139,12 +145,14 @@ public class DoctorSelectionActivity extends AppCompatActivity implements Doctor
                         binding.rvDoctor.setVisibility(View.VISIBLE);
                         binding.pbLoading.setVisibility(View.GONE);
                     } else {
+                        binding.pbLoading.setVisibility(View.GONE);
                         binding.tvNotFound.setVisibility(View.VISIBLE);
                     }
                 }
 
                 @Override
                 public void onFailure(@NonNull Call<DoctorResponse> call, @NonNull Throwable t) {
+                    binding.pbLoading.setVisibility(View.GONE);
                     displayError();
                 }
             });
@@ -233,7 +241,7 @@ public class DoctorSelectionActivity extends AppCompatActivity implements Doctor
     }
 
     @Override
-    public void onClick(DetailSchedule detailSchedule) {
+    public void onClick(ScheduleExclude detailSchedule) {
         Intent intent = new Intent(this, DateSelectionActivity.class);
         intent.putExtra(Constants.KEY_DETAIL_DOCTOR, detailSchedule.getDoctor());
         intent.putExtra(Constants.KEY_DEPARTMENT, detailSchedule.getDoctor().getDepartmentInformation());

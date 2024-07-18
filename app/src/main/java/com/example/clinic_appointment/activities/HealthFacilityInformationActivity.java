@@ -156,6 +156,9 @@ public class HealthFacilityInformationActivity extends AppCompatActivity {
         }
         confirmationDialogBinding.tvTitle.setText(getString(R.string.rate));
         confirmationDialogBinding.tvPositiveAction.setOnClickListener(v -> {
+            confirmationDialogBinding.tvPositiveAction.setVisibility(View.GONE);
+            confirmationDialogBinding.tvNegativeAction.setVisibility(View.GONE);
+            confirmationDialogBinding.pbLoading.setVisibility(View.VISIBLE);
             Call<Void> call = RetrofitClient.getAuthenticatedAppointmentService(this).rateClinic(
                     selectedStar,
                     confirmationDialogBinding.etComment.getText().toString(),
@@ -163,6 +166,7 @@ public class HealthFacilityInformationActivity extends AppCompatActivity {
             call.enqueue(new Callback<Void>() {
                 @Override
                 public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                    confirmationDialogBinding.pbLoading.setVisibility(View.GONE);
                     if (response.isSuccessful()) {
                         starNumbers = selectedStar;
                         alertDialog.dismiss();
@@ -175,7 +179,7 @@ public class HealthFacilityInformationActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
-
+                    confirmationDialogBinding.pbLoading.setVisibility(View.GONE);
                 }
             });
         });

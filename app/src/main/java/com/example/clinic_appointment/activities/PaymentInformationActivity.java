@@ -18,7 +18,8 @@ import com.example.clinic_appointment.databinding.LayoutConfirmationDialogBindin
 import com.example.clinic_appointment.models.Department.Department;
 import com.example.clinic_appointment.models.Doctor.Doctor;
 import com.example.clinic_appointment.models.HealthFacility.HealthFacility;
-import com.example.clinic_appointment.models.Schedule.DetailSchedule;
+import com.example.clinic_appointment.models.PatientProfile.PatientProfile;
+import com.example.clinic_appointment.models.Schedule.ScheduleExclude;
 import com.example.clinic_appointment.networking.clients.RetrofitClient;
 import com.example.clinic_appointment.utilities.Constants;
 import com.example.clinic_appointment.utilities.CustomConverter;
@@ -45,8 +46,10 @@ import vn.zalopay.sdk.ZaloPaySDK;
 import vn.zalopay.sdk.listeners.PayOrderListener;
 
 public class PaymentInformationActivity extends AppCompatActivity {
+    private PatientProfile selectedPatient;
+    private String clinicID;
     private ActivityPaymentInformationBinding binding;
-    private DetailSchedule selectedSchedule;
+    private ScheduleExclude selectedSchedule;
     private String selectedTime;
     private AlertDialog alertDialog;
 
@@ -67,7 +70,11 @@ public class PaymentInformationActivity extends AppCompatActivity {
         Doctor selectedDoctor = (Doctor) getIntent().getSerializableExtra(Constants.KEY_DOCTOR);
         Department selectedDepartment = (Department) getIntent().getSerializableExtra(Constants.KEY_DEPARTMENT);
         HealthFacility selectedHealthFacility = (HealthFacility) getIntent().getSerializableExtra(Constants.KEY_HEALTH_FACILITY);
-        selectedSchedule = (DetailSchedule) getIntent().getSerializableExtra(Constants.KEY_DATE);
+        selectedSchedule = (ScheduleExclude) getIntent().getSerializableExtra(Constants.KEY_DATE);
+        selectedPatient = (PatientProfile) getIntent().getSerializableExtra(Constants.KEY_PATIENT_ID);
+        HealthFacility healthFacility = (HealthFacility) getIntent().getSerializableExtra(Constants.KEY_HEALTH_FACILITY);
+        assert healthFacility != null;
+        clinicID = healthFacility.getId();
         selectedTime = getIntent().getStringExtra(Constants.KEY_TIME);
         binding.tvPaymentMethod.setText(getIntent().getStringExtra(Constants.KEY_PAYMENT_METHOD));
         binding.tvHealthFacility.setText(Objects.requireNonNull(selectedHealthFacility).getName());
@@ -76,9 +83,9 @@ public class PaymentInformationActivity extends AppCompatActivity {
         binding.tvDate.setText(CustomConverter.getFormattedDate(Objects.requireNonNull(selectedSchedule).getDate()));
         binding.tvPrice.setText(Objects.requireNonNull(selectedSchedule).getPrice() + " VND");
         binding.tvTime.setText(CustomConverter.getStringAppointmentTime(Objects.requireNonNull(selectedTime)));
-        binding.tvPatientName.setText(SharedPrefs.getInstance().getData(Constants.KEY_CURRENT_NAME, String.class));
+        binding.tvPatientName.setText(selectedPatient.getFullName());
         binding.tvPatientEmail.setText(SharedPrefs.getInstance().getData(Constants.KEY_CURRENT_EMAIL, String.class));
-        binding.tvPatientPhoneNumber.setText(SharedPrefs.getInstance().getData(Constants.KEY_CURRENT_PHONE_NUMBER, String.class));
+        binding.tvPatientPhoneNumber.setText(selectedPatient.getPhoneNumber());
         binding.tvUtilityPrice.setText(selectedSchedule.getPrice() / 10 + " VND");
         binding.tvTotalPrice.setText(selectedSchedule.getPrice() + selectedSchedule.getPrice() / 10 + " VND");
     }
@@ -115,33 +122,35 @@ public class PaymentInformationActivity extends AppCompatActivity {
     }
 
     private void handleZalopay() {
+        Log.d("Zalopay", "Handling");
         CreateOrder orderApi = new CreateOrder();
         try {
             JSONObject data = orderApi.createOrder("100000");
             String code = data.getString("returncode");
+            Log.d("Zalopay", code);
             if (code.equals("1")) {
                 String token = data.getString("zptranstoken");
                 ZaloPaySDK.getInstance().payOrder(PaymentInformationActivity.this, token, "demozpdk://app", new PayOrderListener() {
                     @Override
                     public void onPaymentSucceeded(String s, String s1, String s2) {
+                        Log.d("Zalopay", "Success");
                         bookAppointment(selectedSchedule.getScheduleId(), selectedTime, ConfirmationActivity.base64Images);
                     }
 
                     @Override
                     public void onPaymentCanceled(String s, String s1) {
-                        Log.d("ClickTest", "Can");
+                        Log.d("Zalopay", "Cancel");
                     }
 
                     @Override
                     public void onPaymentError(ZaloPayError zaloPayError, String s, String s1) {
-                        Log.d("ClickTest", "Pay Error" + zaloPayError.name());
+                        Log.d("Zalopay", "Error");
                     }
                 });
             }
 
         } catch (Exception e) {
             Log.d("ClickTest", "Return code: fail");
-            e.printStackTrace();
         }
     }
 
@@ -152,6 +161,8 @@ public class PaymentInformationActivity extends AppCompatActivity {
             JSONObject jsonPayload = new JSONObject();
             jsonPayload.put("scheduleID", scheduleID);
             jsonPayload.put("time", appointmentTime);
+            jsonPayload.put("patientID", selectedPatient.getId());
+            jsonPayload.put("clinicID", clinicID);
 
             JSONArray imagesArray = new JSONArray();
             if (images != null) {
@@ -159,7 +170,7 @@ public class PaymentInformationActivity extends AppCompatActivity {
                     String formattedImageData = "data:image/jpeg;base64," + imageData;
                     imagesArray.put(formattedImageData);
                 }
-                jsonPayload.put("images", imagesArray);
+                jsonPayload.put("descriptionImg", imagesArray);
             }
 
             RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), jsonPayload.toString());

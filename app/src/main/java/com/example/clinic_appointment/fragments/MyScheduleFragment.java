@@ -161,7 +161,7 @@ public class MyScheduleFragment extends Fragment implements AppointmentListener 
 
     private void getAppointments() {
         SharedPrefs sharedPrefs = SharedPrefs.getInstance();
-        if (sharedPrefs.getData(Constants.KEY_ACCESS_TOKEN, String.class).equals("")) {
+        if (sharedPrefs.getData(Constants.KEY_ACCESS_TOKEN, String.class).isEmpty()) {
             displayDialog();
         } else if (sharedPrefs.getData(Constants.KEY_USER_ROLE, Integer.class).equals(4)) {
             binding.rvAppointments.setVisibility(View.GONE);
@@ -173,13 +173,13 @@ public class MyScheduleFragment extends Fragment implements AppointmentListener 
                     if (response.body() != null && response.isSuccessful()) {
                         appointments = response.body().getBooking();
                         if (currentStatusOption == binding.tvWaitingConfirmation) {
-                            getAppointmentByStatus(appointments, "Đang xử lý");
+                            getAppointmentByStatus(appointments, Constants.KEY_STATUS_PENDING);
                         } else if (currentStatusOption == binding.tvConfirmed) {
-                            getAppointmentByStatus(appointments, "Đã xác nhận");
+                            getAppointmentByStatus(appointments, Constants.KEY_STATUS_CONFIRMED);
                         } else if (currentStatusOption == binding.tvCancelled) {
-                            getAppointmentByStatus(appointments, "Đã huỷ");
+                            getAppointmentByStatus(appointments, Constants.KEY_STATUS_CANCELLED);
                         } else if (currentStatusOption == binding.tvChecked) {
-                            getAppointmentByStatus(appointments, "Đã khám");
+                            getAppointmentByStatus(appointments, Constants.KEY_STATUS_EXAMINED);
                         }
                         if (currentTimeOption == binding.tvToday) {
                             LocalDate today = LocalDate.now();
@@ -228,13 +228,13 @@ public class MyScheduleFragment extends Fragment implements AppointmentListener 
                     if (response.body() != null && response.isSuccessful()) {
                         appointments = response.body().getBooking();
                         if (currentStatusOption == binding.tvWaitingConfirmation) {
-                            getAppointmentByStatus(appointments, "Đang xử lý");
+                            getAppointmentByStatus(appointments, Constants.KEY_STATUS_PENDING);
                         } else if (currentStatusOption == binding.tvConfirmed) {
-                            getAppointmentByStatus(appointments, "Đã xác nhận");
+                            getAppointmentByStatus(appointments, Constants.KEY_STATUS_CONFIRMED);
                         } else if (currentStatusOption == binding.tvCancelled) {
-                            getAppointmentByStatus(appointments, "Đã huỷ");
+                            getAppointmentByStatus(appointments, Constants.KEY_STATUS_CANCELLED);
                         } else if (currentStatusOption == binding.tvChecked) {
-                            getAppointmentByStatus(appointments, "Đã khám");
+                            getAppointmentByStatus(appointments, Constants.KEY_STATUS_EXAMINED);
                         }
                         if (currentTimeOption == binding.tvToday) {
                             LocalDate today = LocalDate.now();
@@ -281,8 +281,8 @@ public class MyScheduleFragment extends Fragment implements AppointmentListener 
     @Override
     public void onClick(Appointment appointment) {
         Intent intent = new Intent(requireActivity(), DetailAppointmentActivity.class);
-        if (appointment.getStatus().equals(Constants.STATUS_PROCESSING)) {
-            intent.putExtra(Constants.KEY_STATUS, Constants.STATUS_PROCESSING);
+        if (appointment.getStatus().equals("Đang chờ xác nhận")) {
+            intent.putExtra(Constants.KEY_STATUS, Constants.KEY_STATUS_PENDING);
         }
         intent.putExtra(Constants.KEY_BOOKING, appointment);
         startActivity(intent);
@@ -290,7 +290,7 @@ public class MyScheduleFragment extends Fragment implements AppointmentListener 
 
     @Override
     public void onAcceptClick(Appointment appointment, int position) {
-        Call<Void> call = RetrofitClient.getAuthenticatedAppointmentService(getContext()).updateBooking(appointment.getId(), "Đã duyệt", null, null);
+        Call<Void> call = RetrofitClient.getAuthenticatedAppointmentService(getContext()).updateBooking(appointment.getId(), Constants.KEY_STATUS_CONFIRMED, null, null);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
@@ -307,7 +307,7 @@ public class MyScheduleFragment extends Fragment implements AppointmentListener 
 
     @Override
     public void onDenyClick(Appointment appointment, int position) {
-        Call<Void> call = RetrofitClient.getAuthenticatedAppointmentService(getContext()).updateBooking(appointment.getId(), "Đã huỷ", null, null);
+        Call<Void> call = RetrofitClient.getAuthenticatedAppointmentService(getContext()).updateBooking(appointment.getId(), Constants.KEY_STATUS_CANCELLED, null, null);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {

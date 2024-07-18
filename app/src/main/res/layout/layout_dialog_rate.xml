@@ -140,6 +140,15 @@
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/_14ssp" />
 
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            android:layout_height="@dimen/_20sdp"
+            android:indeterminateTint="@color/colorPrimary"
+            android:visibility="gone" />
+
     </LinearLayout>
 
 </RelativeLayout>

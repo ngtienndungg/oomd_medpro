@@ -13,7 +13,7 @@ public class User implements Serializable {
     private String email;
     @SerializedName("fullName")
     private String fullName;
-    @SerializedName("mobile")
+    @SerializedName(value = "mobile", alternate = "phone")
     private String phoneNumber;
     @SerializedName("avatar")
     private String avatar;

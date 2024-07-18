@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rlTopAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/colorPrimary"
+        android:paddingHorizontal="@dimen/_8sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/icon_back"
+            android:src="@drawable/ic_back"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:includeFontPadding="false"
+            android:text="@string/patient_profile"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14ssp" />
+
+        <ImageView
+            android:id="@+id/ivCreate"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_new_profile" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlMandatory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rlTopAppBar"
+        android:background="@drawable/background_center_menu"
+        android:backgroundTint="@color/colorRegisterMandatory"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:paddingVertical="@dimen/_12sdp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivInfo"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:contentDescription="@string/icon_information"
+            android:src="@drawable/ic_info"
+            app:tint="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/ivInfo"
+            android:fontFamily="@font/quicksand_medium"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:text="@string/please_select_profile"
+            android:textSize="@dimen/_11ssp" />
+
+    </RelativeLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rlMandatory">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPatientProfile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorSelectHealthFacilityItemBackground"
+            android:paddingTop="@dimen/_4sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_below="@id/rlMandatory"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:indeterminateTint="@color/colorPrimary"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rlMandatory"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/llError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:ignore="UseCompoundDrawables,UselessParent">
+
+            <ImageView
+                android:id="@+id/ivError"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_error" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:text="@string/something_wrong_happened"
+                android:textColor="@color/colorTextViewResult"
+                android:textSize="@dimen/_11sdp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/tvNotFound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:importantForAccessibility="no"
+            android:src="@mipmap/ic_not_found"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

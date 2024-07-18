@@ -9,16 +9,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.clinic_appointment.databinding.ItemContainerSelectDoctorBinding;
 import com.example.clinic_appointment.listeners.ScheduleListener;
-import com.example.clinic_appointment.models.Doctor.Doctor;
-import com.example.clinic_appointment.models.Schedule.DetailSchedule;
+import com.example.clinic_appointment.models.Doctor.DoctorExclude;
+import com.example.clinic_appointment.models.Schedule.ScheduleExclude;
 
 import java.util.List;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ItemViewHolder> {
     private final ScheduleListener listener;
-    private final List<DetailSchedule> schedules;
+    private final List<ScheduleExclude> schedules;
 
-    public ScheduleAdapter(ScheduleListener listener, List<DetailSchedule> doctors) {
+    public ScheduleAdapter(ScheduleListener listener, List<ScheduleExclude> doctors) {
         this.listener = listener;
         this.schedules = doctors;
     }
@@ -52,8 +52,8 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ItemVi
         }
 
         @SuppressLint("SetTextI18n")
-        public void setData(DetailSchedule detailSchedule) {
-            Doctor doctor = detailSchedule.getDoctor();
+        public void setData(ScheduleExclude detailSchedule) {
+            DoctorExclude doctor = detailSchedule.getDoctor();
             String fullDoctorName;
             if (doctor.getAcademicLevel() == null || doctor.getAcademicLevel().length() == 0) {
                 fullDoctorName = "Bác sĩ ".toUpperCase() + detailSchedule.getDoctor().getDoctorInformation().getFullName();

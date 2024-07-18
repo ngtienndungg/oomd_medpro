@@ -1,7 +1,7 @@
 package com.example.clinic_appointment.listeners;
 
-import com.example.clinic_appointment.models.Schedule.DetailSchedule;
+import com.example.clinic_appointment.models.Schedule.ScheduleExclude;
 
 public interface ScheduleListener {
-    void onClick(DetailSchedule detailSchedule);
+    void onClick(ScheduleExclude detailSchedule);
 }

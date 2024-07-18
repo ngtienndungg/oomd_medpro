@@ -23,7 +23,8 @@ import com.example.clinic_appointment.databinding.ActivityConfirmationBinding;
 import com.example.clinic_appointment.models.Department.Department;
 import com.example.clinic_appointment.models.Doctor.Doctor;
 import com.example.clinic_appointment.models.HealthFacility.HealthFacility;
-import com.example.clinic_appointment.models.Schedule.DetailSchedule;
+import com.example.clinic_appointment.models.PatientProfile.PatientProfile;
+import com.example.clinic_appointment.models.Schedule.ScheduleExclude;
 import com.example.clinic_appointment.utilities.Constants;
 import com.example.clinic_appointment.utilities.CustomConverter;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -63,8 +64,9 @@ public class ConfirmationActivity extends AppCompatActivity {
     private Doctor selectedDoctor;
     private Department selectedDepartment;
     private HealthFacility selectedHealthFacility;
-    private DetailSchedule selectedSchedule;
+    private ScheduleExclude selectedSchedule;
     private String timeNumber;
+    private PatientProfile patientProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +79,11 @@ public class ConfirmationActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void initiate() {
+        patientProfile = (PatientProfile) getIntent().getSerializableExtra(Constants.KEY_PATIENT_ID);
         selectedDoctor = (Doctor) getIntent().getSerializableExtra(Constants.KEY_DOCTOR);
         selectedDepartment = (Department) getIntent().getSerializableExtra(Constants.KEY_DEPARTMENT);
         selectedHealthFacility = (HealthFacility) getIntent().getSerializableExtra(Constants.KEY_HEALTH_FACILITY);
-        selectedSchedule = (DetailSchedule) getIntent().getSerializableExtra(Constants.KEY_DATE);
+        selectedSchedule = (ScheduleExclude) getIntent().getSerializableExtra(Constants.KEY_DATE);
         timeNumber = getIntent().getStringExtra(Constants.KEY_TIME);
         binding.tvHealthFacility.setText(Objects.requireNonNull(selectedHealthFacility).getName());
         binding.tvDepartment.setText(Objects.requireNonNull(selectedDepartment).getName());
@@ -99,6 +102,7 @@ public class ConfirmationActivity extends AppCompatActivity {
             intent.putExtra(Constants.KEY_DEPARTMENT, selectedDepartment);
             intent.putExtra(Constants.KEY_HEALTH_FACILITY, selectedHealthFacility);
             intent.putExtra(Constants.KEY_TIME, timeNumber);
+            intent.putExtra(Constants.KEY_PATIENT_ID, patientProfile);
             startActivity(intent);
         });
         binding.rlAddImage.setOnClickListener(v -> {

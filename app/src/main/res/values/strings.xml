@@ -31,6 +31,7 @@
     <string name="department_list">Danh sách chuyên khoa</string>
     <string name="create_account">Tạo tài khoản</string>
     <string name="please_fill_this_information">Vui lòng nhập đầy đủ thông tin bên dưới để tạo tài khoản</string>
+    <string name="please_select_profile">Vui lòng chọn một trong các hồ sơ bên dưới, hoặc bấm vào biểu tượng ở trên để thêm hồ sơ bệnh nhân</string>
     <string name="please_fill_this_information_to_update">Vui lòng nhập đầy đủ thông tin bên dưới để cập nhật</string>
     <string name="asterisk">*</string>
     <string name="icon_back">Icon back</string>
@@ -71,9 +72,12 @@
     <string name="all_province_city">Tất cả Tỉnh/Thành phố</string>
     <string name="icon_star">Icon star</string>
     <string name="select_department">Chọn chuyên khoa</string>
+    <string name="remote_healthcare">Tư vấn khám bệnh từ xa</string>
     <string name="type_department_to_quick_find">Nhập chuyên khoa để tìm nhanh</string>
     <string name="select_doctor">Chọn bác sĩ</string>
+    <string name="select_patient">Chọn hồ sơ người bệnh</string>
     <string name="type_doctor_name_to_quick_find">Nhập tên bác sĩ để tìm nhanh</string>
+    <string name="type_patient_name_to_quick_find">Nhập tên người bệnh để tìm nhanh</string>
     <string name="gender_label">Giới tính:</string>
     <string name="department_label">Chuyên khoa:</string>
     <string name="appointment_calendar_this_week">Lịch khám: </string>
@@ -201,4 +205,6 @@
     <string name="default_text">Mặc định</string>
     <string name="select_date">Chọn ngày</string>
     <string name="accept_appointment">Duyệt lịch</string>
+    <string name="patient_profile">Hồ sơ bệnh nhân</string>
+    <string name="patient">Bệnh nhân</string>
 </resources>

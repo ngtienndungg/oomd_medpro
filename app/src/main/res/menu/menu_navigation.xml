@@ -5,6 +5,10 @@
         android:icon="@drawable/selector_home"
         android:title="@string/home" />
     <item
+        android:id="@+id/menu_item_patient_profile"
+        android:icon="@drawable/selector_patient_profile"
+        android:title="@string/patient_profile" />
+    <item
         android:id="@+id/menu_item_my_schedule"
         android:icon="@drawable/selector_my_schedule"
         android:title="@string/my_scheduling" />

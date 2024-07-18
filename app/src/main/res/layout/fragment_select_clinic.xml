@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.SelectClinicFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHealthFacility"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorSelectHealthFacilityItemBackground"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:indeterminateTint="@color/colorPrimary" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/llError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:ignore="UseCompoundDrawables,UselessParent">
+
+            <ImageView
+                android:id="@+id/ivError"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_error" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:text="@string/something_wrong_happened"
+                android:textColor="@color/colorTextViewResult"
+                android:textSize="@dimen/_11sdp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/tvNotFound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:importantForAccessibility="no"
+            android:src="@mipmap/ic_not_found"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

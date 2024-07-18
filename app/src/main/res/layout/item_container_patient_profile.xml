@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_8sdp"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:background="@drawable/background_health_facility_item"
+    android:paddingHorizontal="@dimen/_16sdp"
+    android:paddingVertical="@dimen/_10sdp">
+
+    <ImageView
+        android:id="@+id/ivDoctor"
+        android:layout_width="@dimen/_18sdp"
+        android:layout_height="@dimen/_18sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_account" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ivDoctor"
+        android:layout_alignBottom="@id/ivDoctor"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_toEndOf="@id/ivDoctor"
+        android:fontFamily="@font/quicksand_bold"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="Nguyen Tien Dung"
+        android:textAllCaps="true"
+        android:textColor="@color/colorDoctorName"
+        android:textSize="@dimen/_12ssp" />
+
+    <ImageView
+        android:id="@+id/ivGender"
+        android:layout_width="@dimen/_18sdp"
+        android:layout_height="@dimen/_18sdp"
+        android:layout_below="@id/ivDoctor"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_9sdp"
+        android:importantForAccessibility="no"
+        android:src="@mipmap/ic_doctor_gender" />
+
+    <TextView
+        android:id="@+id/tvGenderLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ivGender"
+        android:layout_alignBottom="@id/ivGender"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_toEndOf="@id/ivGender"
+        android:fontFamily="@font/quicksand_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/gender_label"
+        android:textColor="@color/colorDoctorInformation"
+        android:textSize="@dimen/_12ssp" />
+
+    <TextView
+        android:id="@+id/tvGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ivGender"
+        android:layout_alignBottom="@id/ivGender"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_toEndOf="@id/tvGenderLabel"
+        android:fontFamily="@font/quicksand_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorDoctorInformation"
+        android:textSize="@dimen/_12ssp" />
+
+    <ImageView
+        android:id="@+id/ivDepartment"
+        android:layout_width="@dimen/_18sdp"
+        android:layout_height="@dimen/_18sdp"
+        android:layout_below="@id/ivGender"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_9sdp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_phone" />
+
+    <TextView
+        android:id="@+id/tvPhoneNumberLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ivDepartment"
+        android:layout_alignBottom="@id/ivDepartment"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="-1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_toEndOf="@id/ivDepartment"
+        android:fontFamily="@font/quicksand_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/phone_number"
+        android:textColor="@color/colorDoctorInformation"
+        android:textSize="@dimen/_12ssp" />
+
+    <TextView
+        android:id="@+id/tvPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ivDepartment"
+        android:layout_alignBottom="@id/ivDepartment"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_toEndOf="@id/tvPhoneNumberLabel"
+        android:fontFamily="@font/quicksand_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorDoctorInformation"
+        android:textSize="@dimen/_12ssp" />
+
+    <ImageView
+        android:id="@+id/ivDateOfBirth"
+        android:layout_width="@dimen/_18sdp"
+        android:layout_height="@dimen/_18sdp"
+        android:layout_below="@id/ivDepartment"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_9sdp"
+        android:importantForAccessibility="no"
+        android:src="@mipmap/ic_doctor_schedule" />
+
+    <TextView
+        android:id="@+id/tvDateOfBirthLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ivDateOfBirth"
+        android:layout_alignBottom="@id/ivDateOfBirth"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_toEndOf="@id/ivDateOfBirth"
+        android:fontFamily="@font/quicksand_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/date_of_birth"
+        android:textColor="@color/colorDoctorInformation"
+        android:textSize="@dimen/_12ssp" />
+
+    <TextView
+        android:id="@+id/tvDateOfBirth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tvDateOfBirthLabel"
+        android:layout_alignBottom="@id/tvDateOfBirthLabel"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_toEndOf="@id/tvDateOfBirthLabel"
+        android:fontFamily="@font/quicksand_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorDoctorInformation"
+        android:textSize="@dimen/_12ssp" />
+
+</RelativeLayout>

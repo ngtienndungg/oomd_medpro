@@ -151,8 +151,7 @@
             android:layout_below="@id/rlSearchCity"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_24sdp"
-            android:indeterminateTint="@color/colorNote"
-            android:visibility="gone" />
+            android:indeterminateTint="@color/colorPrimary" />
 
         <RelativeLayout
             android:layout_width="match_parent"
